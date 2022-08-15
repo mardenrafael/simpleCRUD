@@ -6,7 +6,7 @@
   "endOfLine": "crlf",
   "bracketSpacing": true,
   "bracketSameLine": false,
-  "printWidth": 50,
+  "printWidth": 70,
   "arrowParens": "avoid",
   "semi": true,
   "quoteProps": "as-needed"
