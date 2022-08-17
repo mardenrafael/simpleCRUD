@@ -33,7 +33,7 @@ export class CreateCategories1660531862341
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
-    // await queryRunner.dropTable("categories");
+    await queryRunner.dropTable("categories");
   }
 }
 
