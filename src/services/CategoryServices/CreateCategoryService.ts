@@ -1,5 +1,5 @@
-import { AppDataSource } from "../database/dataSource";
-import { Category } from "../entities/Category";
+import { AppDataSource } from "../../database/dataSource";
+import { Category } from "../../entities/Category";
 
 type CategoryRequest = {
   name: string;
@@ -13,7 +13,8 @@ export class CreateCategoryService {
   }: CategoryRequest): Promise<Category | Error> {
     const repo = AppDataSource.getRepository(Category);
 
-    if (await repo.findOneBy({ name: name })) {
+    //SELECT * FROM Categories WHERE name = name LIMIT 1
+    if (await repo.findOneBy({ name })) {
       return new Error("Category already exist");
     }
     const category = repo.create({
