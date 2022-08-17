@@ -1,13 +1,13 @@
 import { Request, Response } from "express";
-import { CreateCategoryService } from "../services/CreateCategoryService";
+import { UpdateCategoryService } from "../../services/CategoryServices/UpdateCategoryService";
 
-export class CreateCategoryController {
+export class UpdateCategoryController {
   async handle(request: Request, response: Response) {
+    const { id } = request.params;
     const { name, description } = request.body;
+    const service = new UpdateCategoryService();
 
-    const service = new CreateCategoryService();
-
-    const result = await service.execute({ name, description });
+    const result = await service.execute({ id, name, description });
 
     if (result instanceof Error) {
       return response.status(400).json(result.message);
